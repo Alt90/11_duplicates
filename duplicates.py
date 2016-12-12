@@ -2,7 +2,8 @@ import sys
 import os
 
 
-def find_duplicates(search_dir, all_file_in_dir={}):
+def find_duplicates(search_dir):
+    all_file_in_dir = {}
     duplicates = []
     for file_path, search_sub_dir, search_files in os.walk(search_dir):
         for search_file in search_files:
@@ -24,7 +25,8 @@ def print_duplicates(duplicates):
 
 if __name__ == '__main__':
     if (len(sys.argv) < 2):
-        search_dir = '../'
+        print("Path don`t enter.")
+        exit()
     else:
         search_dir = sys.argv[1]
     duplicates = find_duplicates(search_dir)
